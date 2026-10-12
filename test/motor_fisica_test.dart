@@ -59,4 +59,14 @@ void main() {
     MotorFisica.moverHorizontal(personaje, 20, 1000);
     expect(personaje.x, 1000 - personaje.ancho);
   });
+
+  test('haLlegadoALaMeta es verdadero cuando el personaje alcanza la posicion', () {
+    final personaje = Personaje(x: 1900, y: 0);
+    expect(MotorFisica.haLlegadoALaMeta(personaje, 1900), true);
+  });
+
+  test('haLlegadoALaMeta es falso si aun no llega', () {
+    final personaje = Personaje(x: 500, y: 0);
+    expect(MotorFisica.haLlegadoALaMeta(personaje, 1900), false);
+  });
 }
