@@ -41,4 +41,22 @@ void main() {
     MotorFisica.resolverColisionConPiso(personaje, [plataforma], 45);
     expect(personaje.enElSuelo, false);
   });
+
+  test('moverHorizontal desplaza al personaje segun el delta recibido', () {
+    final personaje = Personaje(x: 50, y: 0);
+    MotorFisica.moverHorizontal(personaje, 10, 1000);
+    expect(personaje.x, 60);
+  });
+
+  test('moverHorizontal no deja salir al personaje por el borde izquierdo', () {
+    final personaje = Personaje(x: 2, y: 0);
+    MotorFisica.moverHorizontal(personaje, -10, 1000);
+    expect(personaje.x, 0);
+  });
+
+  test('moverHorizontal no deja salir al personaje por el borde derecho', () {
+    final personaje = Personaje(x: 990, y: 0);
+    MotorFisica.moverHorizontal(personaje, 20, 1000);
+    expect(personaje.x, 1000 - personaje.ancho);
+  });
 }

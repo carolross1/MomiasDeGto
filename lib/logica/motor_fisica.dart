@@ -35,4 +35,12 @@ class MotorFisica {
       }
     }
   }
+
+  static void moverHorizontal(Personaje personaje, double delta, double anchoNivel) {
+    personaje.x += delta;
+    if (personaje.x < 0) personaje.x = 0;
+    if (personaje.x + personaje.ancho > anchoNivel) {
+      personaje.x = anchoNivel - personaje.ancho;
+    }
+  }
 }
