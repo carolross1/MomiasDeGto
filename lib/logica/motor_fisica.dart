@@ -1,4 +1,5 @@
 import 'personaje.dart';
+import 'rectangulo.dart';
 
 class MotorFisica {
   static const double gravedad = 0.8;
@@ -13,6 +14,25 @@ class MotorFisica {
     if (personaje.enElSuelo) {
       personaje.velocidadY = impulsoSalto;
       personaje.enElSuelo = false;
+    }
+  }
+
+  static void resolverColisionConPiso(
+      Personaje personaje, List<Rectangulo> plataformas, double yAnterior) {
+    personaje.enElSuelo = false;
+    final pieAnterior = yAnterior + personaje.alto;
+    for (final plataforma in plataformas) {
+      final pieActual = personaje.y + personaje.alto;
+      final cayendoSobreElla = personaje.velocidadY >= 0 &&
+          pieAnterior <= plataforma.y &&
+          pieActual >= plataforma.y &&
+          personaje.x + personaje.ancho > plataforma.x &&
+          personaje.x < plataforma.x + plataforma.ancho;
+      if (cayendoSobreElla) {
+        personaje.y = plataforma.y - personaje.alto;
+        personaje.velocidadY = 0;
+        personaje.enElSuelo = true;
+      }
     }
   }
 }
