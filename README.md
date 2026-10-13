@@ -54,8 +54,11 @@ flutter run
 Mantén presionados los botones de izquierda/derecha para caminar y el de arriba para saltar.
 Salta encima de las momias para derrotarlas, recolecta las calaveritas y llega al final del nivel.
 
+
 ## Evidencias
 
-![Evidencia 1: pantalla del juego](image.png)
-
-![Evidencia 2: pruebas pasando](image-1.png)
+<p align="center">
+  <img width="300" height="478" alt="Evidencia 1: pantalla del juego" src="https://github.com/user-attachments/assets/f0b86a19-705b-48a9-afd1-d37f27343d46" />
+  &nbsp;&nbsp;&nbsp;
+  <img width="300" height="478" alt="Evidencia 2: pruebas pasando" src="https://github.com/user-attachments/assets/5dcb37c3-8122-4284-902d-951fd7639f03" />
+</p>
